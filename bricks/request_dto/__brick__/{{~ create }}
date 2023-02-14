@@ -1,0 +1,7 @@
+factory {{model_name.pascalCase()}}.create({{#hasProperties}}{ {{#properties}}
+    {{^isNullable}}required {{/isNullable}}{{#hasSpecial}}{{{type}}}{{/hasSpecial}}{{^hasSpecial}}{{type}}{{/hasSpecial}} {{name}},{{/properties}}
+}{{/hasProperties}}) {
+ return {{model_name.pascalCase()}}._({{#properties}}
+      {{name}}: {{name}},{{/properties}}
+    );
+}

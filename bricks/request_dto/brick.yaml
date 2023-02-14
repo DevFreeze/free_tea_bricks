@@ -1,0 +1,10 @@
+name: request_dto
+description: A brick to create a request DTO with properties and the supporting methods create and toJson
+version: 0.0.1
+
+vars:
+  model_name:
+    default: empty
+    type: string
+    description: The request DTO name
+    prompt: What is the name of this request DTO? (Separate multiple words with whitespace)

@@ -1,0 +1,5 @@
+Map<String, dynamic> toJson() {
+ return { {{#properties}}
+      {{name}}Key: {{name}},{{/properties}}
+    };
+}

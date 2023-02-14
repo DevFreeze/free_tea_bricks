@@ -1,0 +1,5 @@
+bricks:
+  request_dto:
+    path: ./bricks/request_dto
+  response_dto:
+    path: ./bricks/response_dto

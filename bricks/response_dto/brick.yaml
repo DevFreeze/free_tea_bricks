@@ -1,0 +1,10 @@
+name: response_dto
+description: A brick to create a response DTO with properties and the supporting method fromJson
+version: 0.0.1
+
+vars:
+  model_name:
+    default: empty
+    type: string
+    description: The response DTO name
+    prompt: What is the name of this response DTO? (Seperate multiple words with whitespace)
