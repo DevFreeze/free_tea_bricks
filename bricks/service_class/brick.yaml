@@ -1,0 +1,10 @@
+name: service_class
+description: A brick to create a service class
+version: 0.0.1
+
+vars:
+  service_name:
+    default: some service
+    type: string
+    description: The service class name
+    prompt: What is the services class name? (Seperate multiple words with whitespace)

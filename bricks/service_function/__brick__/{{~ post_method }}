@@ -1,0 +1,21 @@
+Future<{{response}}?> {{functions_name.camelCase()}}(
+    {{request}} request,
+) async {
+    try {
+        final response = await _apiClient.post(
+            endpoint: '{{{endpoint}}}', // TODO(FreeTea): Move the endpoint to api_endpoints.dart
+            data: request.toJson(),
+        );
+
+        return {{response}}.fromJson(response);
+    } on ApiException catch (apiException) {
+        await handleApiException(
+            apiException: apiException,
+            message: '', // TODO(FreeTea): Show meaningful error message to the user
+        );
+        return {{response}}.empty();
+    } catch (exception, stacktrace) {
+        await handleException(exception, stacktrace);
+        return {{response}}.empty();
+    }
+}

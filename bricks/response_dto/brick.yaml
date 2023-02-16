@@ -1,6 +1,6 @@
 name: response_dto
 description: A brick to create a response DTO with properties and the supporting method fromJson
-version: 0.0.1
+version: 0.0.2
 
 vars:
   model_name:

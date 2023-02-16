@@ -3,3 +3,7 @@ bricks:
     path: ./bricks/request_dto
   response_dto:
     path: ./bricks/response_dto
+  service_class:
+    path: ./bricks/service_class
+  service_function:
+    path: ./bricks/service_function

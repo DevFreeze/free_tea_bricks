@@ -1,0 +1,40 @@
+name: service_function
+description: A brick to update a service class with an additional function
+version: 0.0.1
+
+vars:
+  service_class:
+    default: some_service.dart
+    type: string
+    description: The service class dart file name without extension
+    prompt: "What is the services dart file name? (eg.: some_service.dart)"
+  functions_name:
+    default: some function
+    type: string
+    description: The additionals function name
+    prompt: What is the additionals function name? (Seperate multiple words with whitespace)
+  request:
+    default: SomeRequest
+    type: string
+    description: The request model name
+    prompt: What is the requests model name? (give the exact class name)
+  response:
+    default: SomeResponse
+    type: string
+    description: The response model name
+    prompt: What is the responses model name? (give the exact class name)
+  http_method:
+    type: enum
+    default: GET
+    description: The HTTP method your additional function will have in the service
+    prompt: "Which HTTP method should be added? (J: DOWN, K: UP, Space: (De)-Select)"
+    values:
+      - GET
+      - POST
+      - PUT
+      - DELETE
+  endpoint:
+    default: endpoint
+    type: string
+    description: The endpoint for the function(s) to call
+    prompt: "What is the endpoints that should be called? (eg.: api/endpoint)"

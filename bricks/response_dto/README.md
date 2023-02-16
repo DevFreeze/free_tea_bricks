@@ -13,7 +13,10 @@ Then follow the prompt instructions and add information:
 - Name of the response DTO (separate multiple words with whitespace, e.g.: "my first" will result in MyFirstResponse)
 - Optional: Add properties (Format: dataType propertyName, e.g.: String myProperty)
 - Entering 'e' will exit the adding properties prompt
-- After generating the file, move the generated keys to the keys.dart file
+
+After the file has been generated:
+
+- [ ] Move the generated keys to the keys.dart file
 
 ## Outputs
 

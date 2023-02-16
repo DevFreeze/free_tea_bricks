@@ -4,8 +4,12 @@ class {{model_name.pascalCase()}} {
 {{#properties}}final {{#hasSpecial}}{{{type}}}{{/hasSpecial}}{{^hasSpecial}}{{type}}{{/hasSpecial}} {{name}};{{/properties}}
 
 const {{model_name.pascalCase()}}._({{#hasProperties}}{ {{#properties}}
-{{^isNullable}}required {{/isNullable}}this.{{name}},{{/properties}}
+this.{{name}},{{/properties}}
 }{{/hasProperties}});
+
+factory {{model_name.pascalCase()}}.empty() {
+return const {{model_name.pascalCase()}}._();
+}
 
 {{> from_json }}
 }

@@ -1,6 +1,6 @@
 name: request_dto
 description: A brick to create a request DTO with properties and the supporting methods create and toJson
-version: 0.0.1
+version: 0.0.2
 
 vars:
   model_name:

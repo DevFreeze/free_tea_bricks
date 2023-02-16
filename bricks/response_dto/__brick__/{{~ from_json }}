@@ -1,5 +1,9 @@
-factory {{model_name.pascalCase()}}.fromJson(Map<String, dynamic> json) {
- return {{model_name.pascalCase()}}._({{#properties}}
-      {{name}}: {{#isCustomList}}(json[{{name}}Key] as List<dynamic>).map((dynamic e) => {{customListType}}.fromJson(e as Map<String, dynamic>)).toList(){{/isCustomList}}{{^isCustomList}}{{#isCustomDataType}}{{type}}.fromJson(json[{{name}}Key] as Map<String, dynamic>){{/isCustomDataType}}{{^isCustomDataType}}json[{{name}}Key] as {{#hasSpecial}}{{{type}}}{{/hasSpecial}}{{^hasSpecial}}{{type}}{{/hasSpecial}}{{/isCustomDataType}}{{/isCustomList}},{{/properties}}
-    );
+factory {{model_name.pascalCase()}}.fromJson(dynamic json) {
+    if (json is Map<String, dynamic>) {
+    return {{model_name.pascalCase()}}._({{#properties}}
+          {{name}}: {{#isCustomList}}(json[{{name}}Key] as List<dynamic>).map((dynamic e) => {{customListType}}.fromJson(e as Map<String, dynamic>)).toList(){{/isCustomList}}{{^isCustomList}}{{#isCustomDataType}}{{type}}.fromJson(json[{{name}}Key] as Map<String, dynamic>){{/isCustomDataType}}{{^isCustomDataType}}json[{{name}}Key] as {{#hasSpecial}}{{{type}}}{{/hasSpecial}}{{^hasSpecial}}{{type}}{{/hasSpecial}}{{/isCustomDataType}}{{/isCustomList}},{{/properties}}
+        );
+    }
+
+    return {{model_name.pascalCase()}}.empty();
 }

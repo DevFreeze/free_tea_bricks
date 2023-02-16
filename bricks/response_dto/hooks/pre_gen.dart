@@ -61,8 +61,8 @@ void _addProperties(Logger logger, List<Map<String, dynamic>> properties) {
       properties,
       Property(
         name: propertyName,
-        type: propertyType,
-        isNullable: propertyType.endsWith("?"),
+        // In responses the types should always be nullable
+        type: !propertyType.endsWith("?") ? '$propertyType?' : propertyType,
       ),
     );
   }
@@ -77,7 +77,6 @@ void _addProperty(List<Map<String, dynamic>> properties, Property property) {
   properties.add({
     'name': property.name,
     'type': property.type,
-    'isNullable': property.isNullable,
     'hasSpecial': hasSpecial,
     'isCustomDataType': isCustomDataType,
     ...listProperties,
@@ -110,19 +109,16 @@ Map<String, dynamic> _getCustomListProperties(
 class Property {
   final String name;
   final String type;
-  final bool isNullable;
 
   const Property({
     required this.name,
     required this.type,
-    required this.isNullable,
   });
 
   factory Property.fromMap(Map<String, dynamic> map) {
     return Property(
       name: map['name'],
       type: map['type'],
-      isNullable: (map['type'] as String).endsWith("?"),
     );
   }
 

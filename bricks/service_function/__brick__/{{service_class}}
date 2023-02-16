@@ -1,0 +1,10 @@
+
+{{#use_get}}
+{{> get_method }}{{/use_get}}
+{{#use_post}}
+{{> post_method }}{{/use_post}}
+{{#use_put}}
+{{> put_method }}{{/use_put}}
+{{#use_delete}}
+{{> delete_method }}{{/use_delete}}
+}
