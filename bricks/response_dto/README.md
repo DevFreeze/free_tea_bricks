@@ -29,19 +29,27 @@ mason make response_dto (with name: my first, and properties [String name, int? 
 import '../../../core/utils/keys.dart';
 
 class MyFirstResponse {
-  final String name;
+  final String? name;
   final int? age;
 
   const MyFirstResponse._({
-    required this.name,
+    this.name,
     this.age,
   });
 
-  factory MyFirstResponse.fromJson(Map<String, dynamic> json) {
-    return MyFirstResponse._(
-      name: json[nameKey] as String,
-      age: json[ageKey] as int?,
-    );
+  factory MyFirstResponse.empty() {
+    return const MyFirstResponse._();
+  }
+
+  factory MyFirstResponse.fromJson(dynamic json) {
+    if (json is Map<String, dynamic>) {
+      return MyFirstResponse._(
+        name: json[nameKey] as String?,
+        age: json[ageKey] as int?,
+      );
+    }
+
+    return MyFirstResponse.empty();
   }
 }
 
